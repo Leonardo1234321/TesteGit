@@ -1,6 +1,6 @@
 function submeter() {
-    let m = parseFloat(document.getElementById("massa").value)
-    let n = parseFloat(document.getElementById("altura").value)
+    let m = document.getElementById("massa").value
+    let n = document.getElementById("altura").value
     let imc = m / (n*n);
     if (imc < 18.5) {
         alert("CLASSIFICAÇÃO: MAGREZA, SEU IMC É " + imc)
