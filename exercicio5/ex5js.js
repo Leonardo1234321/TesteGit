@@ -1,7 +1,9 @@
 function verificar() {
     let texto = document.querySelector("#texto1").value;
+    texto = texto.toLowerCase();
     texto = texto.split("");
     let letra = document.querySelector("#letra").value;
+    letra.toLowerCase()
     let contador = 0;
     texto.forEach(function(letras) {
         if (letras === letra) {
