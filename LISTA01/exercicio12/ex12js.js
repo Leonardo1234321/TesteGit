@@ -6,4 +6,4 @@ function checar() {
         soma += vetor[i]
     };
     document.querySelector("#resultado").innerHTML = `A soma dos número da lista é ${soma}`
-}
+};
