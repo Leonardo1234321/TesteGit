@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <label for="texto">Coloque um texto qualquer aqui:</label><br><br>
+    <label for="texto">Coloque uma sentença e cheque quantas palavras especificadas estão nela: </label><br>
     <input type="text" name="texto" id="texto"><br><br>
-    <button onclick="checar()">Clique para checar quantas palavras há no texto</button><br>
+    <label for="palavra">Palavra especificadas: </label><br>
+    <input type="text" name="palavra" id="palavra"><br><br>
+    <button onclick="checar()">Checar</button>
     <div id="resultado"></div>
-    <script src="ex16js.js"> </script>
+    <script src="ex16js.js"></script>
 </body>
 </html>
