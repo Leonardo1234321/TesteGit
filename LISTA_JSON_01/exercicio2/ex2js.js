@@ -1,37 +1,23 @@
-fetch("https://jsonplaceholder.typicode.com/users")
-.then(responde => responde.json())
-.then(users => {
-        fetch("https://jsonplaceholder.typicode.com/posts").then(posts => posts.json())
-        .then(data => {
-            var postID = data[0]["id"];
-            fetch(`https://jsonplaceholder.typicode.com/posts`)
-            
-            let user_name = users[data[0]["userId"] - 1]["name"];
-            let title = data[0]["title"];
-            let body = data[0]["body"];
-            console.log(comments_string)
-            displayPosts(user_name, title, body, postID);
-        }
-            )
-        })
-        .catch(error => displayError(error))
-.catch(error => displayError(error))
+const urls = [
+    'https://jsonplaceholder.typicode.com/posts/1',
+    'https://jsonplaceholder.typicode.com/posts/1/comments',
+    'https://jsonplaceholder.typicode.com/users'
+];
+async function displayComments() {
+    let comments = await fetch(urls[1]);
+    comments = await comments.json();
+    let post = await fetch(urls[0])
+    post =  await post.json();
+    let users = await fetch(urls[2]);
+    users = await users.json();
 
-function displayError(error) {
-    const userList = document.getElementById('user-list');
-    userList.innerHTML = `<div class="error">Ocorreu um erro: ${error.message}</div>`;
-}
+    document.getElementById('comments-list').innerHTML = `${post['title']}<br><br>${post['body']}<br><br>${users[post['userId'] - 1]['name']}<br><br>`;
 
-function displayPosts(user, title, body, postID) {
-    const userList = document.getElementById('user-list');
-    let post = document.createElement('div');
-    post.id = `${postID}`
-    post.innerHTML = `<h1>${title}</h1><br><p>${body}</p><br>${user}`;
-    userList.appendChild(post)
-
+    comments.forEach(comment => {
+        const comment_html = document.createElement('div');
+        comment_html.innerHTML = `<b>${comment['name']}</b> ${comment['email']}<br><br>${comment['body']}`;
+        document.getElementById('comments-list').appendChild(comment_html);
+    });
 };
 
-function displayComments(postID) {
-
-}
-
+displayComments();
