@@ -1,4 +1,4 @@
-export class Livro {
+class Livro {
     protected titulo: string;
     protected preco: number;
     protected autor: string;
@@ -35,4 +35,27 @@ export class Livro {
     }
 }
 
-let harryPotter = new Livro('Harry Potter', 59.99, 'J. K. Rowling')
+
+class biblioteca {
+    private livros: Livro[];
+
+    constructor (books:Livro[]=[]) {
+        this.livros = books;
+    }
+
+    adicionarLivro(livro: Livro): void {
+        this.livros.push(livro);
+    }
+
+    get Livros(): Livro[] {
+        return this.livros;
+    }
+}
+
+let nisiaFloresta = new biblioteca();
+
+let fahrenheit = new Livro('farenheit 451', 39.99, 'leo');
+
+nisiaFloresta.adicionarLivro(fahrenheit)
+
+console.log(nisiaFloresta.Livros)

@@ -1,4 +1,4 @@
-export class Livro {
+class Livro {
     protected titulo: string;
     protected preco: number;
     protected autor: string;
@@ -35,4 +35,19 @@ export class Livro {
     }
 }
 
-let harryPotter = new Livro('Harry Potter', 59.99, 'J. K. Rowling')
+class LivroDigital extends Livro {
+    private formato: string;
+
+    constructor (tit: string, prec: number, auth: string, format: string) {
+        super(tit, prec, auth);
+        this.formato = format;
+    }
+
+    public descricao(): string {
+        return `${this.titulo}, produzido por ${this.autor}, pelo valor de ${this.preco}, DISPONÍVEL NO FORMARTO: ${this.formato}`
+    }
+}
+
+let clubeDoLivroDosHomens = new LivroDigital('Clube do livro dos homens', 69.99, 'Vitória', 'PDF');
+
+console.log(clubeDoLivroDosHomens.descricao());
