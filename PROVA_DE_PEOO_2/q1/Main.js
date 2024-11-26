@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Empresa_js_1 = require("./Empresa.js");
+var Funcionario_js_1 = require("./Funcionario.js");
+var Gerente_js_1 = require("./Gerente.js");
+var leo = new Funcionario_js_1.Funcionario('leoncio', 'programador backend', 400);
+var gustavo = new Funcionario_js_1.Funcionario('gustavim', 'programador front', 500);
+var arthur = new Funcionario_js_1.Funcionario('arthuzao', 'programador gamer', 1000);
+var jurandy = new Gerente_js_1.Gerente(1000, 'juranga', 'Análise de sistemas', 14000);
+var Giva = new Gerente_js_1.Gerente(4000, 'givanaldo', 'Diretor de vendas', 20000);
+var lista = [leo, gustavo, arthur, jurandy, Giva];
+var tech_solucoes = new Empresa_js_1.Empresa('Tech Soluções', lista);
+tech_solucoes.listarFuncionarios();
+leo.aplicarAumento(10);
+arthur.aplicarAumento(15);
+jurandy.aplicarAumento(10);
+Giva.Bonus = 6000;
+tech_solucoes.listarFuncionarios();
